@@ -40,6 +40,14 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 	};
 	
 	$scope.addBeaconItem = function() {
+		$scope.beaconObject = {
+		id: $scope.idInput,
+		name: $scope.nameInput,
+		color: $scope.colorInput,
+		location: $scope.locationInput,
+		x: $scope.xpos,
+		y: $scope.ypos
+	};
 		addBeacon('beacon', $scope.beaconObject);
 	};
 	
