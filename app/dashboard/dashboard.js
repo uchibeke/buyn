@@ -13,18 +13,26 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 
 	var allRef = firebase.database().ref();
 	$scope.$storage.allRef = $firebaseArray(allRef);
+
 	var deals = firebase.database().ref().child("/deals/");
 	$scope.$storage.deals = $firebaseArray(deals);
 
+	var beacons = firebase.database().ref().child("/beacons/");
+	$scope.$storage.beacons = $firebaseArray(beacons);
+
 	var nutrition = firebase.database().ref().child("/nutrition/");
 	$scope.$storage.nutrition = $firebaseArray(nutrition);
-
-	$scope.$storage.selectedBeacon = 'Beacon 007';
 
 	$scope.addNutritionItem = function(itemToAdd) {
 		$scope.$storage.deals = itemToAdd;
 		addItem('nutrition', $scope.$storage.deals);
 	};
+
+	$scope.setDeal = function(deal) {
+		$scope.$storage.selectedDeal = deal;
+	};
+	
+	$scope.$storage.selectedBeacon = "Beacon 0000";
 
 	$scope.$storage.BaseUrlProduct = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/";
 
@@ -93,14 +101,22 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 
 	var addItem = function(childToAdd, itemToAdd) {
 		if (allRef.child(childToAdd).push(itemToAdd)) {
-			itemToAdd = '';
+			console.log(itemToAdd.beaconAssignedTo);
+			console.log(itemToAdd);
+			allRef.child('beacons/' + itemToAdd.beaconAssignedTo).push(itemToAdd);
 		}
 
 	};
 
 	$scope.addDealItem = function(itemToAdd) {
-		$scope.$storage.deals = itemToAdd;
-		addItem('deals', $scope.$storage.deals);
+		addItem('deals', itemToAdd);
 	};
+
+	// ID
+	// Name
+	// Color
+	// Location
+	// Coord
+	// Deals
 
 }])

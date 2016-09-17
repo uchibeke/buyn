@@ -1,38 +1,16 @@
 <div ng-include="'partials/nav.html'"></div>
 <section class="container-fluid uofs-section " id="dashboardPage" style="left: 0;">
-	<div class="row text-center center-block">
-		<div ng-repeat="item in $storage.allEvents" class="col-lg-4 col-sm-4 col-xs-4 text-center" >
-			<a   style="width:100%;" href="" class="btn btn-md" type="button" ng-click="setEvent(item.eventName)" ng-style="$storage.allEvents[$storage.allEvents.indexOf(item)].eventName == $storage.eventName && {'border':'1px solid #F50057','outline':'0'}" > {{item.eventName}}</a>
+	<div class="row text-left">
+		<div ng-repeat="deal in $storage.deals" class="col-xs-12 text-left" ng-style="$storage.deals[$storage.deals.indexOf(deal)].name == $storage.selectedDeal && {'border':'1px solid #F50057','outline':'0'}" >
+			<a href=""  ng-click="setDeal(deal.name)" style="text-decoration: none;color: black;width:100%;" > {{deal.name}}</a>
 			<a style="position: absolute; left:20px; top:3px;" href="#/tickets" ng-show="$storage.allEvents[$storage.allEvents.indexOf(item)].eventName == $storage.eventName"><span class="fa fa-ticket text-muted"></span></a>
 			<a style="position: absolute; right:20px; top:3px;" ng-href="#/newevent"   data-toggle="tooltip" title="Edit Event" ng-show="$storage.allEvents[$storage.allEvents.indexOf(item)].eventName == $storage.eventName"><span class="glyphicon glyphicon-edit text-muted"></span></a>
 			<a style="position: absolute; right:20px; bottom:-3px;" href=""  data-toggle="modal" data-target="#confirmModal" ng-show="$storage.allEvents[$storage.allEvents.indexOf(item)].eventName == $storage.eventName"><span class="glyphicon glyphicon-remove text-muted"></span></a>
 		</div>
-		<div  class="col-lg-4 col-sm-4 col-xs-4 text-center" >
-			<a  style="width:100%;" href="" class="btn btn-md" type="button" ng-href="#/newevent"   data-toggle="tooltip" title="Add new Event"><span class="glyphicon glyphicon-plus "></span> </a>
-		</div>
+		<!-- <div  class="col-lg-4 col-sm-4 col-xs-4 text-center" >
+		<a  style="width:100%;" href="" class="btn btn-md" type="button" ng-href="#/newevent"   data-toggle="tooltip" title="Add new Event"><span class="glyphicon glyphicon-plus "></span> </a>
+		</div> -->
 	</div>
-	<br />
-	<!-- <div class="row" >
-	<form class=" text-center form col-xs-12 center-block">
-	<input ng-model="dealItem" placeholder="Search for a ticket number or name"
-	autofocus="autofocus" class=" form-control center center-block" >
-	</form>
-	<form class=" text-center form col-xs-12 center-block">
-	<button class="btn btn-primary" ng-click="addDealItem(dealItem)">
-	Add
-	</button>
-	</form>
-	<p class="clearfix"></p>
-	<div ng-repeat="item in $storage.guestsList  | filter:dashSearch" class="col-lg-2 col-md-3 col-sm-4 col-xs-6 text-center guestInDash"  ng-style="($index % 2 == 0) ? {'border' : '1px solid #EEEEEE'} : {'border' : '1px solid #D3DCF2'}">
-	<p  class="">
-	<a style="position: absolute; right:5px; top:5px;;" href="" ng-click="removeElement($storage.guestsList, $storage.guestsList.indexOf(item))"   data-toggle="tooltip" title="Remove a guest"><span class="glyphicon glyphicon-remove "></span></a>
-	{{item.ticketNumber}}
-	<br />
-	<span class="text-muted"> {{item.guestStatus ? item.guestStatus : 'Not Checked-in'}}</span>
-	</p>
-	</div>
-	</div> -->
-	<!-- ////// -->
 	<form role="form">
 		<br />
 		<div class="form-group center-block">
@@ -43,7 +21,7 @@
 				<input  class="form-control "  placeholder="" type="number"
 				ng-model="$storage.api.questions.productID" ng-required="true" autofocus="autofocus">
 			</div >
-			<div class="col-sm-12" ng-hide="$storage.api.questions.productID.length>0">
+			<div class="col-sm-12" ng-hide="$storage.api.questions.productID > 0">
 				<p >
 					Or search for product by name
 				</p>
@@ -53,7 +31,7 @@
 		</div>
 		<div class="form-group col-md-12  col-xs-12 text-right">
 			<button ng-model="btnText" type="button"  ng-hide="$storage.api.questions.productID.length<1 || $storage.api.questions.productID == undefined"
-			class="btn btn-primary " ng-click="searchRecipes($storage.api.questions.fullStr);">
+			class="btn btn-primary "  href="" data-toggle="modal" data-target="#confirmModal" ng-click="getProductWithId($storage.api.questions.productID)">
 				Add Product
 			</button>
 			<button ng-model="btnText" type="button"  ng-hide="$storage.api.questions.productName.length<1 || $storage.api.questions.productName == undefined"
@@ -93,7 +71,7 @@
 					<p class="text-capitalize text-center">
 						{{$storage.productToMakeDeal.name}}
 					</p>
-					<p>
+					<p ng-show="$storage.productToMakeDeal.price > 0">
 						{{$storage.productToMakeDeal.price/100 | currency}}
 					</p>
 					<img class="img-responsive center-block text-center" src="{{$storage.productToMakeDeal.image}}" />
@@ -104,11 +82,10 @@
 						Add
 					</button>
 					<button type="button" class="btn btn-primary btn-md pull-right" data-dismiss="modal">
-						No.
+						No
 					</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </section>
