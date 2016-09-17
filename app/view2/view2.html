@@ -1,5 +1,18 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+
+<h1>iBeacon Registration</h1>
+
+<p>Register iBeacons here:</p>
+<input type='number' ng-model='idInput'><br>
+<input type= 'text' ng-model = 'nameInput'><br>
+<input type = 'text' ng-model = 'colorInput'><br>
+<input type = 'text' ng-model = 'locationInput'><br>
+X: <input type = 'number' ng-model = 'xpos'>
+Y: <input type = 'number' ng-model = 'ypos'>
+
+<button ng-click = 'addBeaconItem()'>Register Beacon!</button>
+
+<p><h2>Beacon Database: </h2></p>
+	<ul>
+		<li ng-repeat= "x in beacon"> {{x.id}}</li>
+	</ul>
+
