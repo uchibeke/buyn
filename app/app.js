@@ -4,7 +4,7 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.home',
-  'myApp.view2',
+  'myApp.addBeacon',
   'myApp.dashboard',
   'myApp.version', 
   'firebase',

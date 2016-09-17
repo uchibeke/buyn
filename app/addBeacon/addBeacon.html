@@ -1,0 +1,86 @@
+<h1>iBeacon Registration</h1>
+
+<p>
+	Register iBeacons here:
+</p>
+<div class="row">
+	<div class="col-xs-6">
+		<form role="form ">
+			<div class="form-group center-block">
+				<div class="col-sm-12">
+					<p >
+						Enter Beacon ID
+					</p>
+					<input  class="form-control "  placeholder="" type="text"
+					ng-model="beacon.id" ng-required="true" autofocus="autofocus">
+				</div >
+				<div class="col-sm-12" >
+					<p >
+						Enter Beacon Name
+					</p>
+					<input  class="form-control "  placeholder="" type="text"
+					ng-model="beacon.name" ng-required="true" >
+				</div>
+				<div class="col-sm-12">
+					<p >
+						Enter Beacon Color
+					</p>
+					<input  class="form-control "  placeholder="" type="text"
+					ng-model="beacon.color" ng-required="true" >
+				</div>
+				<div class="col-sm-12" >
+					<p >
+						Enter Beacon Location
+					</p>
+					<input  class="form-control "  placeholder="" type="text"
+					ng-model="beacon.location" ng-required="true" >
+				</div>
+				<div class="col-sm-12" ng-hide="">
+					<br />
+					Position:
+					X
+					<input  class=" "  placeholder="" type="text"
+					ng-model="beacon.x" ng-required="true" style="width: 50px" >
+					Y
+					<input  class=" "  placeholder="" type="text"
+					ng-model="beacon.y" ng-required="true"  style="width: 50px" >
+				</div>
+				<div class="col-sm-12 text-right" >
+					<br />
+					<button ng-click = 'addBeaconItem()' type="button" class="btn btn-primary">
+						Register Beacon!
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="col-xs-6">
+		<h4>Beacon Database: </h4>
+		<div>
+			<div ng-repeat= "x in beacon">
+				<a  href=""  ng-click="showPreview = !showPreview"><span class="glyphicon glyphicon-chevron-down text-muted"></span></a>
+				{{x.name}}
+				<a  href=""  ng-click="removeBeacon(x)" ><span class="glyphicon glyphicon-remove text-muted pull-right"></span></a>
+				<br />
+				<div class="" ng-show='showPreview'>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<p>
+								ID: {{x.id}}
+							</p>
+							<p>
+								Color: {{x.color}}
+							</p>
+							<p>
+								Location: {{x.location}}
+							<p>
+								Position: ({{x.x}} , {{x.y}} )
+							</p>
+							<a  href=""  ng-click="startEdit(x)"><span class="glyphicon glyphicon-edir pull-right text-muted"></span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
