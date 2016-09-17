@@ -68,7 +68,7 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 			console.log(data);
 			setProductToMakeDeal(data.id, data.title, data.price, data.images[0]);
 			$scope.$storage.api.responses.productIdAnswer = data;
-			$scope.$storage.api.questions.productId = "";
+			$scope.$sBeatorage.api.questions.productId = "";
 		}).error(function(data, status) {
 			// Handle HTTP error
 		}).finally(function() {
