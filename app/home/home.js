@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.home', ['ngRoute', 'ngStorage', "firebase"]).config(['$routeProvider', 
+angular.module('myApp.home', ['ngRoute', 'ngStorage', "firebase"]).config(['$routeProvider',
 function($routeProvider) {
 	$routeProvider.when('/home', {
 		templateUrl : 'home/home.html',
@@ -210,7 +210,7 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 			// Catch and handle exceptions from success/error/finally functions
 		});
 	};
-
+	$scope.$storage.api.responses.UrlAnswer = {};
 	$scope.searchRecipes = function(fullStr) {
 
 		var url = $scope.$storage.api.baseUrl;
