@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.home', ['ngRoute', 'ngStorage', "firebase"]).config(['$routeProvider',
+angular.module('myApp.home', ['ngRoute', 'ngStorage', "firebase"]).config(['$routeProvider', 
 function($routeProvider) {
 	$routeProvider.when('/home', {
 		templateUrl : 'home/home.html',

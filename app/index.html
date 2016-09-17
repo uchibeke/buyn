@@ -41,14 +41,25 @@
 		<![endif]-->
 
 		<div ng-view></div>
+		<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+		<!-- AngularFire -->
+		<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
 		<script src="components/version/version.js"></script>
 		<script src="components/version/version-directive.js"></script>
 		<script src="components/version/interpolate-filter.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
-		<!-- AngularFire -->
-		<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
 		<script src="bower_components/ngstorage/ngStorage.min.js"></script>
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey : "AIzaSyAt2uCfHviTbrtQ-hwZPpAXAIhxnJH6SwY",
+				authDomain : "buyn-811ef.firebaseapp.com",
+				databaseURL : "https://buyn-811ef.firebaseio.com",
+				storageBucket : "buyn-811ef.appspot.com",
+				messagingSenderId : "1092591947160"
+			};
+			firebase.initializeApp(config);
+		</script>
 	</body>
 </html>
