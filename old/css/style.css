@@ -1,0 +1,189 @@
+/* @override
+
+ @import url("http://fonts.googleapis.com/css?family=Bree+Serif|Merriweather:400,300,700,900|Droid+Sans:400,700");
+
+ /*Other Reset*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: 'Roboto Condensed', 'Candal', monospace, sans-serif;
+	print-color-adjust: exact !important;
+	-webkit-print-color-adjust: exact !important;
+	-moz-print-color-adjust: exact !important;
+}
+
+html {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+q, blockquote {
+	quotes: none;
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+	content: "";
+	content: none;
+}
+
+a img {
+	border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+	display: block;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Base Styles */
+
+.cf:before, .cf:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+
+.cf:after {
+	clear: both;
+}
+
+#home_welcome {
+	min-height: 100% !important;
+	background-repeat: no-repeat !important;
+	background-position: center center !important;
+	background-size: cover !important;
+	position: fixed;
+	left: 0 !important;
+	top: 0 !important;
+	bottom: 0 !important;
+	border: none !important;
+	/*background: rgba(255, 255, 255, 0.6) !important;*/
+	color: gray !important;
+	font-size: 1.3em;
+}
+
+#home_welcome, .brandTitle {
+	font-weight: 600 !important;
+	color: #F5F5F5 !important;
+	position: fixed;
+	top: 2%;
+	left: 2%;
+}
+
+#home_welcome h1 {
+	color: #F5F5F5 !important;
+}
+
+#home_conf {
+	color: black !important;
+	background-image: url("../images/home4.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-position: center center !important;
+	background-size: cover !important;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	top: 50%;
+	height: 50% !important;
+	padding: 2%;
+	-moz-transition: all .3s linear;
+	-webkit-transition: all .3s linear;
+	-ms-transition: all .3s linear;
+	-o-transition: all .3s linear;
+	transition: all .3s linear;
+	border-radius: 100% 0 0 0;
+}
+
+.home_description {
+	font-size: 18px !important;
+	font-family: 'Sanchez', 'Exo 2', 'Roboto Condensed', 'Candal', monospace, sans-serif !important;
+	font-weight: normal;
+	white-space: normal !important;
+	background: rgba(255, 192, 47, 0.7) !important;
+	color: #F5F5F5;
+	padding: 2%;
+}
+body {
+	margin: 0;
+	background: #000;
+}
+#bgvid {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	transform: translateX(-50%) translateY(-50%);
+	background-size: cover;
+	transition: 1s opacity;
+}
+
+#bg_grayed {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	transform: translateX(-50%) translateY(-50%);
+	background-size: cover;
+	transition: 1s opacity;
+	background: rgba(0, 0, 0, 0.5) !important;
+	z-index: -10;
+}
+
+#login_bg_grayed {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	transform: translateX(-50%) translateY(-50%);
+	background-size: cover;
+	transition: 1s opacity;
+	background: rgba(0, 0, 0, 0.5) !important;
+	z-index: -10;
+}
+
+#bg_grayed_darker {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	transform: translateX(-50%) translateY(-50%);
+	background-size: cover;
+	transition: 1s opacity;
+	background: rgba(0, 0, 0, 0.9) !important;
+	z-index: -10;
+}
