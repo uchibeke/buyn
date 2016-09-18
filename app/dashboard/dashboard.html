@@ -1,38 +1,37 @@
 <div ng-include="'partials/nav.html'"></div>
-<!-- <script src = "https://rawgithub.com/eligrey/FileSaver.js/master/FileSaver.js" type = "text/javascript"></script> -->
 <section class="container-fluid uofs-section " id="dashboardPage" style="left: 0;">
 	<div class="row text-center center-block">
-		<div ng-repeat="item in $storage.allEvents" class="col-lg-4 col-sm-4 col-xs-4 text-center" >
+		<h1>{{$storage.selectedEvent.name}}</h1>
+		<!-- <div ng-repeat="item in $storage.allEvents" class="col-lg-4 col-sm-4 col-xs-4 text-center" >
 			<a   style="width:100%;" href="" class="btn btn-md" type="button" ng-click="setEvent(item.eventName)" ng-style="$storage.allEvents[$storage.allEvents.indexOf(item)].eventName == $storage.eventName && {'border':'1px solid #F50057','outline':'0'}" > {{item.eventName}}</a>
 			<a style="position: absolute; left:20px; top:3px;" href="#/tickets" ng-show="$storage.allEvents[$storage.allEvents.indexOf(item)].eventName == $storage.eventName"><span class="fa fa-ticket text-muted"></span></a>
 			<a style="position: absolute; right:20px; top:3px;" ng-href="#/newevent"   data-toggle="tooltip" title="Edit Event" ng-show="$storage.allEvents[$storage.allEvents.indexOf(item)].eventName == $storage.eventName"><span class="glyphicon glyphicon-edit text-muted"></span></a>
 			<a style="position: absolute; right:20px; bottom:-3px;" href=""  data-toggle="modal" data-target="#confirmModal" ng-show="$storage.allEvents[$storage.allEvents.indexOf(item)].eventName == $storage.eventName"><span class="glyphicon glyphicon-remove text-muted"></span></a>
-		</div>
+		</div> 
 		<div  class="col-lg-4 col-sm-4 col-xs-4 text-center" >
 			<a  style="width:100%;" href="" class="btn btn-md" type="button" ng-href="#/newevent"   data-toggle="tooltip" title="Add new Event"><span class="glyphicon glyphicon-plus "></span> </a>
-		</div>
+		</div> -->
 	</div>
 	<br />
 	<div class="row" >
 		<form class=" text-center form col-xs-12 center-block">
-			<input ng-model="dashSearch" placeholder="Search for a ticket number or name"
-			autofocus="autofocus" class=" form-control center center-block" >
+			<input ng-model="dashSearch" placeholder="Search for a keyword: " autofocus="autofocus" class=" form-control center center-block" >
 		</form>
 		<p class="clearfix"></p>
 
+		<div  class ="container-fluid" id = "exportable">
 		<button ng-click = "exportData()">Export Excel</button>
-		<div id="exportable">
-		<table class="table table-responsive table-hover table-striped table-condensed" >
+		<table class="table table-striped">
 			<thead>
 				<tr>
-					<td>Name</td>
-					<td>Email</td>
-					<td>LinkedIn</td>
-					<td>Profession</td>
-					<td>Education</td>
-					<td>GitHub</td>
+					<td><b>Name</b></td>
+					<td><b>Email</b></td>
+					<td><b>LinkedIn</b></td>
+					<td><b>Profession</b></td>
+					<td><b>Education</b></td>
+					<td><b>GitHub</b></td>
 				</tr>
-				<tr ng-repeat="people in $storage.selectedEvent.people">
+				<tr ng-repeat="people in $storage.selectedEvent.people | filter:dashSearch">
 					<td>{{people.name}}</td>
 					<td>{{people.email}}</td>
 					<td>{{people.linkedInUrl}}</td>
