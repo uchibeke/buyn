@@ -29,8 +29,15 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 
 				guestRef = firebase.database().ref().child("/admin/" + admin.uid + "events/" + $scope.$storage.eventName + "/people");
 				$scope.$storage.people = $firebaseArray(guestRef);
-				$location.path('/myevents')
+				
+				
 
+				var user = firebase.database().ref().child("/admin/" + admin.uid);
+				$rootScope.$storage.user = $firebaseArray(ref);
+				
+				$location.path('/myevents')
+				
+				
 				location.reload();
 			} else {
 				event.preventDefault();

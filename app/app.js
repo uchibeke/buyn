@@ -1,5 +1,3 @@
-'use strict';
-
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
@@ -20,8 +18,14 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
 	}).when('/myevent', {
 		templateUrl : 'myevent/myevent.html',
 		controller : 'myeventCtrl'
+	}).when('/preview', {
+		templateUrl : 'dashboard/dashboard.html',
+		controller : 'dashboardCtrl'
+	}).when('/home', {
+		templateUrl : 'home/home.html',
+		controller : 'HomeCtrl'
 	}).
-	otherwise({redirectTo: '/myevent'});
+	otherwise({redirectTo: '/home'});
 }])
 
 .run(['$rootScope', '$location', '$firebaseAuth', '$localStorage',

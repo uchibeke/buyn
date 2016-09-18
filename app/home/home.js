@@ -1,12 +1,12 @@
-'use strict';
-
-angular.module('myApp.home', ['ngRoute', 'ngStorage', "firebase"]).config(['$routeProvider',
-function($routeProvider) {
-	$routeProvider.when('/home', {
-		templateUrl : 'home/home.html',
-		controller : 'HomeCtrl'
-	});
-}]).controller('HomeCtrl', ['$rootScope', '$scope', '$http', '$localStorage', '$timeout', '$interval', '$sce', '$firebaseObject', '$firebaseArray', '$firebaseAuth',
+angular.module('myApp.home', ['ngRoute', 'ngStorage', "firebase"]).
+// config(['$routeProvider',
+// function($routeProvider) {
+	// $routeProvider.when('/home', {
+		// templateUrl : 'home/home.html',
+		// controller : 'HomeCtrl'
+	// });
+// }])
+controller('HomeCtrl', ['$rootScope', '$scope', '$http', '$localStorage', '$timeout', '$interval', '$sce', '$firebaseObject', '$firebaseArray', '$firebaseAuth',
 function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $firebaseObject, $firebaseArray, $firebaseAuth) {
 
 	$scope.$storage = $localStorage;

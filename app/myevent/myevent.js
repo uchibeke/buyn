@@ -1,19 +1,19 @@
-'use strict';
-
-var myeventApp = angular.module('myApp.myevent', ['ngRoute', 'ngStorage',  ]);
+var myeventApp = angular.module('myApp.myevent', ['ngRoute', 'ngStorage', "firebase"  ]);
 
 myeventApp.controller('myeventCtrl', ['$rootScope', '$scope', '$http', '$localStorage', '$timeout', '$interval', '$sce', '$firebaseObject', '$firebaseArray', '$firebaseAuth', '$location',
 function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $firebaseObject, $firebaseArray, $firebaseAuth, $location) {
 	$scope.$storage = $localStorage;
 	var ref = firebase.database().ref();
-	$scope.$storage.ref = $firebaseArray(ref);;
-
-	var events = firebase.database().ref().child("/admin/" + $rootScope.$storage.admin.signInUser.uid + "/events");
-	$scope.$storage.events = $firebaseArray(events);
+	$scope.$storage.ref = $firebaseArray(ref);
 	
-	var beacons = firebase.database().ref().child("/beacons/");
-	$scope.$storage.beacons = $firebaseArray(beacons);
+	if ($rootScope.$storage.admin) {
+		var events = firebase.database().ref().child("/admin/" + $rootScope.$storage.admin.signInUser.uid + "/events");
+		$scope.$storage.events = $firebaseArray(events);
+		
+		var beacons = firebase.database().ref().child("/beacons/");
+		$scope.$storage.beacons = $firebaseArray(beacons);
 	
+	}
 	$scope.tempEvent = {};
 	$scope.tempEvent.start = new Date(2011, 11, 11, 11, 11);
 	$scope.tempEvent.end = new Date(2011, 11, 11, 11, 11);
@@ -21,7 +21,7 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 	var addEvent = function(itemToAdd) {
 		var name = itemToAdd.name;
 		console.log (name);
-		if (events.push( itemToAdd )) {
+		if (events.child($scope.event.name).push( itemToAdd )) {
 			itemToAdd = '';
 		}
 	};
@@ -43,7 +43,7 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 		if (user.push({
 			name : $rootScope.$storage.admin.signInUser.displayName ,
 			contactEmail : $rootScope.$storage.admin.signInUser.email ,
-			name : $rootScope.$storage.admin.signInUser.uid 
+			uid : $rootScope.$storage.admin.signInUser.uid 
 		})) {
 			console.log ($rootScope.$storage.admin.signInUser);
 		}
@@ -72,6 +72,36 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 				'linkedInUrl' : "https://www.linkedin.com/in/thomas.me",
 				'profession' : 'Student',
 				'education' : "PhD in French",
+				'github' : 'Student'
+			},{
+				'name' : "Smith Sam Timmy",
+				'email' : 'smisa@usask.ca',
+				'linkedInUrl' : "http://.....",
+				'profession' : 'Student',
+				'education' : "PHD",
+				'github' : 'Student'
+			},
+			{
+				'name' : "Thomas Messi Benzi",
+				'email' : 'test@myemail.com',
+				'linkedInUrl' : "",
+				'profession' : 'Student',
+				'education' : "PhD in French",
+				'github' : 'Student'
+			},{
+				'name' : "Ben Smithy Shan",
+				'email' : 'kim.j@kimmy.com',
+				'linkedInUrl' : "https://www.linkedin.com/in/uchibeke",
+				'profession' : 'Student',
+				'education' : "Master",
+				'github' : 'Student'
+			},
+			{
+				'name' : "Kelly Sammy",
+				'email' : 'kelly4real1999@myemail.com',
+				'linkedInUrl' : "https://www.linkedin.com/in/thomas.me",
+				'profession' : 'Student',
+				'education' : "High School",
 				'github' : 'Student'
 			}]
 		};
