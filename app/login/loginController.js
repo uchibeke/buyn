@@ -1,14 +1,5 @@
-var loginControllers = angular.module('myApp.login', ['ngRoute', 'ngStorage',  "firebase"]);
-
-// loginControllers.config(['$routeProvider',
-// function($routeProvider) {
-	// $routeProvider.when('/login', {
-		// templateUrl : 'login/login.html',
-		// controller : 'LoginController'
-	// });
-// }]);
-
-loginControllers.controller('LoginController', ['$rootScope', '$scope', '$http', '$localStorage', '$timeout', '$interval', '$sce',  '$firebaseObject', '$firebaseArray', '$firebaseAuth', '$location',
+var loginControllers = angular.module('myApp.login', ['ngRoute', 'ngStorage', "firebase"]);
+loginControllers.controller('LoginController', ['$rootScope', '$scope', '$http', '$localStorage', '$timeout', '$interval', '$sce', '$firebaseObject', '$firebaseArray', '$firebaseAuth', '$location',
 function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $firebaseObject, $firebaseArray, $firebaseAuth, $location) {
 
 	$scope.$storage = $localStorage.$default({
@@ -39,6 +30,7 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 				guestRef = firebase.database().ref().child("/admin/" + admin.uid + "events/" + $scope.$storage.eventName + "/people");
 				$scope.$storage.people = $firebaseArray(guestRef);
 				$location.path('/myevents')
+
 				location.reload();
 			} else {
 				event.preventDefault();
@@ -82,5 +74,4 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 		}
 	};
 }]);
-
 

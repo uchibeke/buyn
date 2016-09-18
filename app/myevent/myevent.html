@@ -50,12 +50,8 @@
 		<h4>Beacon Database: </h4>
 		<div>
 			<div ng-repeat= "item in $storage.events  | orderBy: event.end">
-				<a  href=""  ng-click="showPreview = !showPreview"><span class="glyphicon glyphicon-chevron-down text-muted"></span></a>
-				{{item.name}}
-				<!-- removeBeacon 
-				<a  href=""  ng-click="removeBeacon(x)" ><span class="glyphicon glyphicon-remove text-muted pull-right"></span></a>
-				<br />
-				-->
+				<a  href="" style="color: black; text-decoration: none;"  ng-click="showPreview = !showPreview"><span class="glyphicon glyphicon-chevron-down text-muted"></span> {{item.name}}</a>
+
 				<div class="" ng-show='showPreview'>
 					<div class="panel panel-default">
 						<div class="panel-body">

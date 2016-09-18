@@ -36,6 +36,20 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 			console.log('Pushed Beacon');
 		}
 	};
+	
+	var addCompanyDetails = function () {
+		var user = firebase.database().ref().child("/admin/" + $rootScope.$storage.admin.signInUser.uid);
+		$rootScope.$storage.user = $firebaseArray(user);
+		if (user.push({
+			name : $rootScope.$storage.admin.signInUser.displayName ,
+			contactEmail : $rootScope.$storage.admin.signInUser.email ,
+			name : $rootScope.$storage.admin.signInUser.uid 
+		})) {
+			console.log ($rootScope.$storage.admin.signInUser);
+		}
+		// company name, company description, contact name, contact email
+
+	};
 
 	$scope.addNewEvent = function() {
 		$scope.eventObject = {
@@ -61,6 +75,7 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 				'github' : 'Student'
 			}]
 		};
+		addCompanyDetails();
 		addEvent($scope.eventObject);
 		addBeacon($scope.eventObject.id, $rootScope.$storage.admin.signInUser.displayName, $rootScope.$storage.admin.signInUser.uid);
 		if ($scope.options.saveEdit) {
