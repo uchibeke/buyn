@@ -18,16 +18,19 @@
 		<link  rel="stylesheet"  href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link  rel="stylesheet"  href="bower_components/roboto-fontface/css/roboto/roboto-fontface.css">
 		<link  rel="stylesheet"  href="bower_components/roboto-fontface/css/roboto-condensed/roboto-condensed-fontface.css">
+		<link  rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
 		<script src="bower_components/angular/angular.js"></script>
 		<script src="bower_components/angular-route/angular-route.js"></script>
 		<script src="app.js"></script>
+		<script src="login/loginController.js"></script>
 		<script src="home/home.js"></script>
-		<script src="addBeacon/addBeacon.js"></script>
+		<script src="myevent/myevent.js"></script>
 		<script src="dashboard/dashboard.js"></script>
+		<script src="addDeal/addDeal.js"></script>
 
 	</head>
-	<body class="container-fluid">
+	<body >
 		<!-- <ul class="menu">
 		<li>
 		<a href="#!/home">Home</a>
@@ -41,7 +44,8 @@
 		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
-		<div ng-view></div>
+		<div ng-include="'nav.html'"></div>
+		<div ng-view class="container-fluid"></div>
 		<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
 		<!-- AngularFire -->
 		<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>

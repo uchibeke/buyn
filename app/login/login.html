@@ -1,0 +1,56 @@
+<div style="position:fixed;top:0;left:0;right:0;bottom:0;height:100%;overflow: hidden;">
+	<div id="home_bg">
+		<div  id="login_bg_grayed"></div>
+		<div class="col-sm-10 col-sm-offset-1"  style="padding-top: 120px;color: white;">
+			<form class="form center-block " ng-show="$storage.admin == null">
+				<div class="row text-center">
+					<b class="text-muted"> Login to get started </b>
+					<br class="clearfix" />
+					<br />
+					<div class="form-group col-xs-4" >
+						<button type="submit" class="btn btn-primary loginBtn" ng-click="login('facebook')" ng-disabled="true" >
+							<i class="fa fa-facebook-official" ></i>
+						</button>
+					</div>
+					<div class="form-group col-xs-4">
+						<button type="submit" class="btn btn-primary loginBtn" ng-click="login('google')">
+							<i class="fa fa-google" ></i>
+						</button>
+					</div>
+					<div class="form-group col-xs-4">
+						<button type="submit" class="btn btn-primary loginBtn" ng-click="login('twitter')" ng-disabled="true" >
+							<i class="fa fa-twitter" ></i>
+						</button>
+					</div>
+				</div>
+				<div class="row " class="loginDiv">
+					<div id="loginInto" class="col-sm-4 text-center" ng-repeat="item in evewhyteBenefits">
+						{{item}}
+					</div>
+				</div>
+				<p></p>
+			</form>
+			<form class="form text-center center-block" ng-hide="$storage.admin  == null">
+				<div class="row center-block text-center">
+					<img src="{{$storage.admin.signInUser.photoURL}}" class=" img-responsive text-center center-block" width="50%"/>
+					<p>
+						{{$storage.admin.signInUser.displayName}}
+						<br />
+						<span class="text-muted">{{$storage.admin.signInUser.email}}</span>
+					</p>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary loginBtn" ng-click="logOut()">
+						<i class="fa fa-sign-out" ></i> Logout
+					</button>
+					<a ng-href="#!/myevent" class="btn btn-primary " type="button"> <i class="fa fa-tachometer" ></i> My Events </a>
+				</div>
+			</form>
+		</div>
+		<video  autoplay loop muted  poster="images/people.jpeg" id="bgvid" preload="auto"
+		autoplay=""  aria-hidden="true" role="presentation">
+			<source src="images/people.mp4" type="video/webm">
+			<source src="images/people.mp4" type="video/mp4">
+		</video>
+	</div>
+</div>

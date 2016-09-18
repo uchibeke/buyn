@@ -14,6 +14,23 @@ function($rootScope, $scope, $http, $localStorage, $timeout, $interval, $sce, $f
 	$scope.$storage.options = {};
 	$scope.$storage.api = {};
 
+	var user,
+	    allRef,
+	    ref,
+	    guestRef;
+	if (firebase.auth().currentUser) {
+		user = firebase.auth().currentUser;
+		allRef = firebase.database().ref().child("/users/" + user.uid + "/");
+		$scope.$storage.allEvents = $firebaseArray(allRef);
+
+		ref = firebase.database().ref().child("/users/" + user.uid + "/" + $scope.$storage.eventName + "/");
+		$scope.$storage.currentEvent = $firebaseArray(ref);
+
+		guestRef = firebase.database().ref().child("/users/" + user.uid + "/" + $scope.$storage.eventName + "/guests");
+		$scope.$storage.guestsList = $firebaseArray(guestRef);
+
+	}
+
 	$scope.$storage.api.baseUrl = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/';
 
 	$scope.$storage.api.responses = {};
