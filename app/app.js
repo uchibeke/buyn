@@ -24,10 +24,8 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
 	}).when('/home', {
 		templateUrl : 'home/home.html',
 		controller : 'HomeCtrl'
-	}).
-	otherwise({redirectTo: '/home'});
+	}).otherwise({redirectTo: '/home'});
 }])
-
 .run(['$rootScope', '$location', '$firebaseAuth', '$localStorage',
 function($rootScope, $location, $firebaseAuth, $localStorage) {
 	$rootScope.$storage = $localStorage.$default({
@@ -44,7 +42,7 @@ function($rootScope, $location, $firebaseAuth, $localStorage) {
 			if (currRoute.originalPath == '/login') {
 				$location.path('/login');
 			} else {
-				$location.path('/myevent');
+				$location.path('/home');
 			}
 		}
 	});

@@ -20,7 +20,7 @@ p, .lead {
 }
 
 header h1 {
-	color: #FFFFFF
+	
 }
 
 h1 {
@@ -28,6 +28,7 @@ h1 {
   line-height: 55px;
   letter-spacing: -1px;
   font-weight: 700;
+  color: white;
 }
 
 h2 {
@@ -129,7 +130,7 @@ a:hover, a:focus {
 }
 
 .btn-primary {
-  background-color:#70cbce;
+  background-color:#4f773e;
   color: #ffffff;
 }
 
@@ -205,7 +206,7 @@ a:hover, a:focus {
 }
 
 .blue {
-  color: #70cbce;
+  color: #4f773e;
 }
 
 .white {
@@ -217,7 +218,7 @@ a:hover, a:focus {
 }
 
 .blue-bg {
-  background: #70cbce;
+  background: #4f773e;
 }
 
 .white-bg {
@@ -236,7 +237,7 @@ a:hover, a:focus {
 
 .navbar {
     border: 0px solid rgba(0, 0, 0, 0);
-    background: #70cbce;
+    background: #4f773e;
     margin: auto;
     min-height: 60px;
     padding-top: 8px;
@@ -391,8 +392,8 @@ hr.line {
 }
 
 .blue {
-	border-color: #70cbce;
-	color: #70cbce
+	border-color: #4f773e;
+	color: #4f773e
 }
 
 .yellow {
@@ -460,7 +461,7 @@ footer {
 
 
 #pricing {
-  background: #70cbce;
+  background: #4f773e;
 }
 
 .pricing-container {
@@ -558,7 +559,7 @@ footer {
 }
 
 .features.last a {
-	color: #70cbce;
+	color: #4f773e;
 	font-size: 14px;
 	letter-spacing: 1px;
 }
