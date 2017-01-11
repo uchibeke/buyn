@@ -1,0 +1,26 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "users": {
+      ".read": true,
+      ".write": true
+    },
+    "admin": {
+      "$uid": {
+        "events": {
+          "people": {
+            ".read": false,
+            ".write": true
+          }
+        }
+      },
+      "admin": {
+        "$uid": {
+          ".read": "$uid === auth.uid",
+          ".write": "$uid === auth.uid"
+        }
+      }
+    }
+  }
+}
